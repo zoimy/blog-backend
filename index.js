@@ -3,13 +3,13 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+dotenv.config()
 import authRouter from './routes/auth.js'
 import postsRouter from './routes/posts.js'
 import multer from 'multer'
 import checkAuth from './utils/checkAuth.js'
 import fs from 'fs'
 
-dotenv.config()
 
 const app = express()
 
