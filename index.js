@@ -31,7 +31,7 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use('/uploads', express.static('uploads'))
 
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 4444
 
 mongoose.connect(process.env.MONGODB_URL)
 .then(app.listen(PORT, () => {
