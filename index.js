@@ -33,7 +33,7 @@ app.use('/uploads', express.static('uploads'))
 
 const PORT = process.env.PORT || 4444
 
-mongoose.connect(process.env.MONGODB_URL)
+mongoose.connect(process.env.MONGO_URL)
 .then(app.listen(PORT, () => {
 	console.log(`Server started on: ${PORT}`);
 }))
