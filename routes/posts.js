@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
 
 		res.status(201).json(posts)
 	} catch (error) {
+		console.error(error)
 		res.status(500).json({ message: "Cant get posts" })
 	}
 })
