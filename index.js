@@ -39,8 +39,8 @@ mongoose.connect(process.env.MONGO_URL)
 }))
 .catch((error) => console.log(error.message))
 
-app.use('/auth', authRouter)
 app.use('/posts', postsRouter)
+app.use('/auth', authRouter)
 app.get('/', (req,res) =>{
 	res.json({message: 'Main / direcory'})
 })

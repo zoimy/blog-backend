@@ -7,6 +7,15 @@ import UserModel from '../models/User.js'
 
 const router = express.Router()
 
+router.get('/', async (req, res) => {
+	try {
+		const posts = await PostModel.find().populate('user').exec()
+
+		res.status(201).json(posts)
+	} catch (error) {
+		res.status(500).json({ message: "Cant get posts" })
+	}
+})
 router.post('/', checkAuth, createPostValidation, handleValidationErrors, async (req, res) => {
 	try {
 		const newPost = new PostModel({
@@ -26,15 +35,6 @@ router.post('/', checkAuth, createPostValidation, handleValidationErrors, async 
 	}
 })
 
-router.get('/', async (req, res) => {
-	try {
-		const posts = await PostModel.find().populate('user').exec()
-
-		res.status(201).json(posts)
-	} catch (error) {
-		res.status(500).json({ message: "Cant get posts" })
-	}
-})
 
 router.get('/comments/latest', async (req, res) => {
 	try {
