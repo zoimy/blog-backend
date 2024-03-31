@@ -41,6 +41,9 @@ mongoose.connect(process.env.MONGO_URL)
 
 app.use('/auth', authRouter)
 app.use('/posts', postsRouter)
+app.get('/', (req,res) =>{
+	res.json({message: 'Main / direcory'})
+})
 app.post('/upload',checkAuth, upload.single('image'), (req,res) => {
 	res.json({
 		url: `/uploads/${req.file.originalname}`
